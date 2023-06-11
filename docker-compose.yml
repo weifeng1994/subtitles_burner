@@ -1,0 +1,20 @@
+version: '3'
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: ./dockerfiles/app/Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:/app
+
+  frontend:
+    build: 
+      context: .
+      dockerfile: ./dockerfiles/frontend/Dockerfile
+    ports:
+      - 8501:8501
+    volumes:
+      - ./:/app
+    
