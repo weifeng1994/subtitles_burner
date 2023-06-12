@@ -14,7 +14,7 @@ if "file_base64" not in st.session_state:
 
 def call_api(video_file, subtitles_file):
     resp = requests.post(
-        endpoint, files={"video_file": video_file, "subtitle_file": subtitles_file}
+        endpoint, params={"output_type": "Base64"}, files={"video_file": video_file, "subtitle_file": subtitles_file}
     )
 
     if resp.status_code == 200:
