@@ -3,7 +3,7 @@ A mini project to burn subtitles into a video files
 
 # About this project
 - This project is a project for me to practice deployment of a code to burn subtitles using Python (FastAPI)
-- This project is also for me to learn how to use Streamlit for the first time. Therefore the UI is quite basic, but as I get better in Streamlit, the UI will be improved in the later versions
+- This project is also for me to revise how to use ReactJS.
 
 # Pre-requisites
 You will need to install Docker and Docker Compose
