@@ -1,3 +1,4 @@
+import base64
 import codecs
 import logging
 import tempfile
@@ -129,17 +130,10 @@ async def create_file(
             with open(output_video_file, "rb") as fo:
                 output_video_file_buffer = fo.read()
 
-            output_video_file_base64 = codecs.encode(
-                output_video_file_buffer, "base64"
-            ).decode()
-            # Return in JS readable format. Remove all \n otherwise video won't be loaded
-            return (
-                f"data:{media_content_type};base64,{output_video_file_base64}".replace(
-                    "\n", ""
-                )
-            )
+            output_video_file_base64 = base64.b64encode(output_video_file_buffer)
+            return output_video_file_base64
         else:
-
+            print("Streaming file ...")
             def iterfile():
                 CHUNK_SIZE = 1024 * 1024  # = 1MB - adjust the chunk size as desired
                 with open(output_video_file, "rb") as f:
